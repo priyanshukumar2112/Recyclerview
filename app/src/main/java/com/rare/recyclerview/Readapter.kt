@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 class Readapter (var detail : ArrayList<sdetail>) : RecyclerView.Adapter<Readapter.ViewHolder>(){
 
    class ViewHolder(var view: View) : RecyclerView.ViewHolder(view) {
-        var tvName = view.findViewById<TextView>(R.id.tvName)
-        var tvRollNo = view.findViewById<TextView>(R.id.tvRollNo)
+        var etName = view.findViewById<TextView>(R.id.etName)
+        var etRollNo = view.findViewById<TextView>(R.id.etRollNo)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -20,8 +20,8 @@ class Readapter (var detail : ArrayList<sdetail>) : RecyclerView.Adapter<Readapt
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.tvName.setText(detail[position].name)
-        holder.tvRollNo.setText(detail[position].rollNo.toString())
+        holder.etName.setText(detail[position].name)
+        holder.etRollNo.setText(detail[position].rollNo.toString())
     }
 
     override fun getItemCount(): Int {
