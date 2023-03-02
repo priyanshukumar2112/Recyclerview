@@ -12,6 +12,7 @@
         android:textSize="25sp"
         android:layout_margin="10dp"
         android:hint="Name"
+        android:maxLength="26"
         android:inputType="textPersonName"/>
     <EditText
         android:id="@+id/etRollNo"
@@ -19,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:textSize="25sp"
+        android:maxLength="5"
         android:hint="Rollno"
         android:inputType="number"/>
     <LinearLayout

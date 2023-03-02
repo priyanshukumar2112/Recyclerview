@@ -1,6 +1,6 @@
 package com.rare.recyclerview
 
 interface RecyclerInterface {
-    fun edit(detail : sdetail)
-    fun delete(detail : sdetail)
+    fun edit(position:Int)
+    fun delete(position:Int)
 }

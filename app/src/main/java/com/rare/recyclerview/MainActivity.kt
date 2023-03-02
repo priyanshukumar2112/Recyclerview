@@ -35,9 +35,8 @@ var detail = ArrayList<sdetail>()
             dialog.setContentView(dbinding.root)
             dialog.window?.setLayout(
                 ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
+                ViewGroup.LayoutParams.WRAP_CONTENT,
             )
-<<<<<<< Updated upstream
             dbinding.btnDelete.visibility = View.INVISIBLE
             dbinding.btnUpdate.visibility = View.INVISIBLE
             dbinding.btnSave.setOnClickListener{
@@ -56,25 +55,50 @@ var detail = ArrayList<sdetail>()
                     dialog.dismiss()
                 }
             }
-=======
-
->>>>>>> Stashed changes
-
             dialog.show()
         }
     }
 
-    override fun edit(detail: sdetail) {
+    override fun edit(position:Int) {
 
-        
+        var dbinding = ItemListBinding.inflate(layoutInflater)
+        var dialog = Dialog(this)
+        dialog.setContentView(dbinding.root)
+        dialog.window?.setLayout(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+        )
+        dbinding.btnDelete.visibility = View.INVISIBLE
+        dbinding.btnUpdate.visibility = View.INVISIBLE
+
+        dbinding.etName.setText(detail[position].name.toString())
+        dbinding.etRollNo.setText(detail[position].rollNo.toString())
+        dbinding.btnSave.setOnClickListener{
+
+            if(dbinding.etName.text.isEmpty()){
+                dbinding.etName.error = "Enter Name"
+            }
+            else if(dbinding.etRollNo.text.isEmpty()){
+                dbinding.etRollNo.error = "Enter Roll no"
+            }
+            else {
+                var name = dbinding.etName.text.toString()
+                var roll = dbinding.etRollNo.text.toString().toInt()
+                detail.set(position,sdetail(name,roll))
+                adapter.notifyDataSetChanged()
+                dialog.dismiss()
+            }
+        }
+        dialog.show()
     }
 
-    override fun delete(detail: sdetail) {
+    override fun delete(position:Int) {
         var dialog = AlertDialog.Builder(this)
         dialog.setTitle("Delete Alert!!")
         dialog.setMessage("Are you sure ")
         dialog.setPositiveButton("yes"){_,_ ->
-
+            detail.removeAt(position)
+            adapter.notifyDataSetChanged()
             Toast.makeText(this, "Deleted", Toast.LENGTH_SHORT).show()
 
         }
