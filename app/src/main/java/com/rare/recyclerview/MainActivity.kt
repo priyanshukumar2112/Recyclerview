@@ -37,6 +37,7 @@ var detail = ArrayList<sdetail>()
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
             )
+<<<<<<< Updated upstream
             dbinding.btnDelete.visibility = View.INVISIBLE
             dbinding.btnUpdate.visibility = View.INVISIBLE
             dbinding.btnSave.setOnClickListener{
@@ -55,6 +56,9 @@ var detail = ArrayList<sdetail>()
                     dialog.dismiss()
                 }
             }
+=======
+
+>>>>>>> Stashed changes
 
             dialog.show()
         }
