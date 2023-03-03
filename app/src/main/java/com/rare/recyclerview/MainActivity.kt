@@ -44,13 +44,17 @@ var detail = ArrayList<sdetail>()
                 if(dbinding.etName.text.isEmpty()){
                     dbinding.etName.error = "Enter Name"
                 }
-                else if(dbinding.etRollNo.text.isEmpty()){
-                    dbinding.etRollNo.error = "Enter Roll no"
+                else if(dbinding.etPhno.text.isEmpty()){
+                    dbinding.etPhno.error = "Enter Roll no"
+                }
+                else if(dbinding.etAddress.text.isEmpty()){
+                    dbinding.etAddress.error = "Enter Roll no"
                 }
                 else {
                     var name = dbinding.etName.text.toString()
-                    var roll = dbinding.etRollNo.text.toString().toInt()
-                    detail.add(sdetail(name,roll))
+                    var address = dbinding.etAddress.text.toString()
+                    var phone = dbinding.etPhno.text.toString().toInt()
+                    detail.add(sdetail(name,address,phone))
                     adapter.notifyDataSetChanged()
                     dialog.dismiss()
                 }
@@ -72,19 +76,21 @@ var detail = ArrayList<sdetail>()
         dbinding.btnUpdate.visibility = View.INVISIBLE
 
         dbinding.etName.setText(detail[position].name.toString())
-        dbinding.etRollNo.setText(detail[position].rollNo.toString())
+        dbinding.etAddress.setText(detail[position].address.toString())
+        dbinding.etPhno.setText(detail[position].phone.toString())
         dbinding.btnSave.setOnClickListener{
 
             if(dbinding.etName.text.isEmpty()){
                 dbinding.etName.error = "Enter Name"
             }
-            else if(dbinding.etRollNo.text.isEmpty()){
-                dbinding.etRollNo.error = "Enter Roll no"
+            else if(dbinding.etPhno.text.isEmpty()){
+                dbinding.etPhno.error = "Enter phone number"
             }
             else {
                 var name = dbinding.etName.text.toString()
-                var roll = dbinding.etRollNo.text.toString().toInt()
-                detail.set(position,sdetail(name,roll))
+                var address = dbinding.etAddress.text.toString()
+                var phone = dbinding.etPhno.text.toString().toInt()
+                detail.set(position,sdetail(name, address,phone ))
                 adapter.notifyDataSetChanged()
                 dialog.dismiss()
             }

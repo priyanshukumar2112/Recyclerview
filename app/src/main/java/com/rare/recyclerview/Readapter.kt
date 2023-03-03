@@ -12,7 +12,8 @@ class Readapter (var detail : ArrayList<sdetail>, var recyclerInterface :Recycle
 
    class ViewHolder(var view: View) : RecyclerView.ViewHolder(view) {
         var etName = view.findViewById<TextView>(R.id.tvName)
-        var etRollNo = view.findViewById<TextView>(R.id.tvRollNo)
+        var etphone = view.findViewById<TextView>(R.id.tvPhone)
+       var etAddress = view.findViewById<TextView>(R.id.tvAddress)
        var btnedit = view.findViewById<ImageButton>(R.id.btnUpdate)
        var btnDelete = view.findViewById<ImageButton>(R.id.btnDelete)
     }
@@ -25,7 +26,8 @@ class Readapter (var detail : ArrayList<sdetail>, var recyclerInterface :Recycle
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.etName.setText(detail[position].name)
-        holder.etRollNo.setText(detail[position].rollNo.toString())
+        holder.etAddress.setText(detail[position].address)
+        holder.etphone.setText(detail[position].phone.toString())
 
         holder.btnDelete.setOnClickListener{
             recyclerInterface.delete(position)
